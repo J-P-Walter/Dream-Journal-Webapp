@@ -1,7 +1,4 @@
 const express = require("express");
-const { ObjectId } = require("mongodb");
-const { connect } = require("mongoose");
-const conn = require("../db/conn");
 const recordRoutes = express.Router();
 const connectDB = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
