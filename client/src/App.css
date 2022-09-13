@@ -8,7 +8,7 @@ body {
     #c4c5ff
   );
   background-size: 400% 400%;
-  animation: animate-background 60s infinite ease-in-out;
+  animation: animate-background 30s infinite ease-in-out;
 }
 
 @keyframes animate-background {

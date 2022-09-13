@@ -12,6 +12,7 @@
   cursor: pointer;
   line-height: 200%;
   animation: fade-in 2s;
+  margin: 5%;
 }
 @keyframes fade-in {
   from {
@@ -22,6 +23,7 @@
   }
 }
 
+/* Need to code when month is clicked */
 .focus {
   animation: expand-month forwards ease-in;
 }
