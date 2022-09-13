@@ -3,7 +3,9 @@ import { useNavigate } from "react-router";
 
 export default function Create() {
   const [form, setForm] = useState({
-    date: "",
+    month_name: "",
+    month_number: 0,
+    day: "",
     sleep_quality: 2,
     sleep_length: 8,
     dream: "",
@@ -14,8 +16,32 @@ export default function Create() {
 
   //Update state
   function updateForm(value) {
+    if ("date" in value) {
+      var month_number = value["date"].slice(5, 7);
+      var day = value["date"].slice(8, 11);
+      var month_name = toMonthName(month_number);
+      //console.log(month, day);
+      return setForm((prevForm) => {
+        return {
+          ...prevForm,
+          month_name: month_name,
+          month_number: month_number,
+          day: day,
+        };
+      });
+    }
     return setForm((prevForm) => {
       return { ...prevForm, ...value };
+    });
+  }
+
+  //Helper function to convert month number to name
+  function toMonthName(monthNumber) {
+    const date = new Date();
+    date.setMonth(monthNumber - 1);
+
+    return date.toLocaleString("en-US", {
+      month: "long",
     });
   }
 
@@ -38,14 +64,16 @@ export default function Create() {
 
     //Resets form back to default after submission
     setForm({
-      date: Date(),
+      month_name: "",
+      month_number: 0,
+      day: "",
       sleep_quality: 2,
       sleep_length: 8,
       dream: "",
     });
     navigate("/");
   }
-
+  //console.log(form);
   return (
     <div>
       <h1>Create new entry</h1>
@@ -53,8 +81,7 @@ export default function Create() {
       <form onSubmit={onSubmit}>
         <label htmlFor="date">Date</label>
         <input
-          type="text"
-          value={form.date}
+          type="date"
           onChange={(e) => updateForm({ date: e.target.value })}
         />
         <label htmlFor="sleep_quality">Sleep Quality</label>

@@ -1,8 +1,13 @@
 import "./App.css";
-import Create from "./components/create";
+import Create from "./components/Create";
+import List from "./components/List";
 
 function App() {
-  return <Create />;
+  return (
+    <body>
+      <Create />
+    </body>
+  );
 }
 
 export default App;
