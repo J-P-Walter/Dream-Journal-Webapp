@@ -7,7 +7,7 @@ const ObjectId = require("mongodb").ObjectId;
 recordRoutes.route("/record").get((req, res) => {
   let db_route = connectDB.getDb("Dream_Entries");
   db_route
-    .collection("March")
+    .collection("dreams")
     .find({})
     .toArray((err, result) => {
       if (err) throw err;
@@ -38,7 +38,7 @@ recordRoutes.route("/record/add").post((req, response) => {
     sleep_length: req.body.sleep_length,
     dream: req.body.dream,
   };
-  db_route.collection(req.body.month_name).insertOne(new_record, (err, res) => {
+  db_route.collection("dreams").insertOne(new_record, (err, res) => {
     if (err) throw err;
     console.log("Added");
     response.json(res);

@@ -1,29 +1,21 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import "./App.css";
-import Month from "./components/Month";
+import Calender from "./components/Calender";
+import Create from "./components/Create";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  const Months = months.map((month) => <Month month={month} />);
   return (
     <body>
-      <h1 className="title">Dream Journal</h1>
-      <main className="calender">
-        <div className="months">{Months}</div>
-      </main>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Calender />} />
+          <Route path="/create" element={<Create />} />
+        </Routes>
+      </Router>
     </body>
   );
 }
