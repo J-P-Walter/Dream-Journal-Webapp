@@ -1,31 +1,32 @@
 import React from "react";
 import "./Month.css";
+import Entries from "./Entries";
 
 export default function Month(props) {
-  const [isFocus, setFocus] = React.useState(true);
   const [display, setDisplay] = React.useState(props.month);
+  const [showDreams, setShowDreams] = React.useState(props.show);
 
-  //Changes class when clicked, maybe change all classes so they fade?
-  function handleClick() {
-    setFocus(!isFocus);
-  }
   function handleMouseOver() {
-    setDisplay(0);
+    setDisplay(props.data.length);
   }
   function handleMouseOut() {
     setDisplay(props.month);
   }
-
+  function handleClick() {
+    setShowDreams(!showDreams);
+  }
+  console.log(showDreams);
   return (
     <div>
       <div
-        className={isFocus ? "month-name" : "month-name focus"}
-        onClick={handleClick}
+        className="month-name"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
+        onClick={handleClick}
       >
         {display}
       </div>
+      {showDreams ? <Entries data={props.data} /> : null}
     </div>
   );
 }

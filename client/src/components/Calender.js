@@ -21,7 +21,15 @@ export default function Calender() {
     getRecords();
     return;
   }, [records.length]);
-  console.log(records);
+
+  const groupByMonth = records.reduce((group, month) => {
+    const { month_number } = month;
+    group[month_number] = group[month_number] ?? [];
+    group[month_number].push(month);
+    return group;
+  }, {});
+
+  //console.log(groupByMonth);
 
   const months = [
     "Jan",
@@ -37,7 +45,24 @@ export default function Calender() {
     "Nov",
     "Dec",
   ];
-  const Months = months.map((month) => <Month month={month} />);
+
+  const Months = [];
+  for (let i = 1; i < months.length + 1; i++) {
+    let entries = [];
+    if (i < 10) {
+      if ("0" + i in groupByMonth) {
+        //console.log(groupByMonth["0" + i]);
+        entries = groupByMonth["0" + i];
+      }
+    } else {
+      if (i in groupByMonth) {
+        //console.log(groupByMonth[i.toString()]);
+        entries = groupByMonth[i.toString()];
+      }
+    }
+    Months.push(<Month month={months[i - 1]} data={entries} show={false} />);
+  }
+
   return (
     <div>
       <h1 className="title">Dream Journal</h1>

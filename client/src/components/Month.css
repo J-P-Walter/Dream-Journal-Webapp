@@ -22,10 +22,3 @@
     opacity: 1;
   }
 }
-
-/* Need to code when month is clicked */
-.focus {
-  animation: expand-month forwards ease-in;
-}
-@keyframes expand-month {
-}
