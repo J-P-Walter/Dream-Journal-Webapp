@@ -13,8 +13,6 @@ export default function Calender() {
         window.alert(message);
         return;
       }
-      //console.log(response);
-      //const records = response.json;
       const records = await response.json();
       setRecords(records);
     }
@@ -28,8 +26,6 @@ export default function Calender() {
     group[month_number].push(month);
     return group;
   }, {});
-
-  //console.log(groupByMonth);
 
   const months = [
     "Jan",
@@ -51,12 +47,10 @@ export default function Calender() {
     let entries = [];
     if (i < 10) {
       if ("0" + i in groupByMonth) {
-        //console.log(groupByMonth["0" + i]);
         entries = groupByMonth["0" + i];
       }
     } else {
       if (i in groupByMonth) {
-        //console.log(groupByMonth[i.toString()]);
         entries = groupByMonth[i.toString()];
       }
     }

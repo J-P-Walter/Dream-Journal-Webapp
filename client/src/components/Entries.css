@@ -5,17 +5,8 @@
   left: 50.25%;
   top: 39%;
   border-radius: 10px;
-  /*
-        Nope =(
-        margin-left: -25%;
-        margin-top: -25%;
-        */
-
-  /* 
-        Yep!
-        */
   transform: translate(-50%, -50%);
-  animation: widen 2.5s;
+  animation: widen 2s;
   animation-fill-mode: forwards;
 }
 @keyframes widen {
@@ -31,4 +22,58 @@
     width: 85vw;
     height: 690px;
   }
+}
+.data {
+  animation: fade-in 2.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.close {
+  opacity: 0.3;
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  animation: fade-in-close 2.5s;
+}
+@keyframes fade-in-close {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }

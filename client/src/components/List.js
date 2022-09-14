@@ -13,15 +13,12 @@ export default function List() {
         window.alert(message);
         return;
       }
-      //console.log(response);
-      //const records = response.json;
       const records = await response.json();
       setRecords(records);
     }
     getRecords();
     return;
   }, [records.length]);
-  //console.log(records);
 
   function recordList() {
     return records.map((record) => {

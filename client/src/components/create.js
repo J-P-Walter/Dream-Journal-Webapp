@@ -20,7 +20,6 @@ export default function Create() {
       var month_number = value["date"].slice(5, 7);
       var day = value["date"].slice(8, 11);
       var month_name = toMonthName(month_number);
-      //console.log(month, day);
       return setForm((prevForm) => {
         return {
           ...prevForm,
@@ -73,7 +72,6 @@ export default function Create() {
     });
     navigate("/");
   }
-  //console.log(form);
   return (
     <div>
       <h1>Create new entry</h1>

@@ -1,4 +1,5 @@
 body {
+  user-select: none;
   background: linear-gradient(
     to right,
     #fce9ff,
@@ -24,6 +25,7 @@ body {
 }
 
 .title {
+  user-select: none;
   font-family: Pacifico;
   font-size: 4vw;
   display: flex;

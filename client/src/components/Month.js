@@ -4,7 +4,7 @@ import Entries from "./Entries";
 
 export default function Month(props) {
   const [display, setDisplay] = React.useState(props.month);
-  const [showDreams, setShowDreams] = React.useState(props.show);
+  const [showDreams, setShowDreams] = React.useState(false);
 
   function handleMouseOver() {
     setDisplay(props.data.length);
@@ -12,10 +12,13 @@ export default function Month(props) {
   function handleMouseOut() {
     setDisplay(props.month);
   }
+  //set false on close
   function handleClick() {
-    setShowDreams(!showDreams);
+    setShowDreams(true);
   }
-  console.log(showDreams);
+  function handleClose() {
+    setShowDreams(false);
+  }
   return (
     <div>
       <div
@@ -26,7 +29,7 @@ export default function Month(props) {
       >
         {display}
       </div>
-      {showDreams ? <Entries data={props.data} /> : null}
+      {showDreams ? <Entries data={props.data} close={handleClose} /> : null}
     </div>
   );
 }
