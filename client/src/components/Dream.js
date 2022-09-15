@@ -2,6 +2,15 @@ import "./Dream.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
+async function del(id) {
+  console.log(id);
+  await fetch(`http://localhost:3500/delete/${id}`, {
+    method: "DELETE",
+  });
+  this.forceUpdate();
+}
+function update() {}
+
 export default function Dream(props) {
   return (
     <div className="dream-list">
@@ -15,8 +24,17 @@ export default function Dream(props) {
       </div>
       <div className="dream">{props.dream}</div>
       <div className="buttons">
-        <FontAwesomeIcon icon={faTrash} />
-        <FontAwesomeIcon icon={faPenToSquare} />
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          size="2x"
+          onClick={() => update(props._id)}
+        />
+        {"  "}
+        <FontAwesomeIcon
+          icon={faTrash}
+          size="2x"
+          onClick={() => del(props._id)}
+        />
       </div>
     </div>
   );

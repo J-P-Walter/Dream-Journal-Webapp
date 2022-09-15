@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export default function Entries(props) {
   const sortedData = props.data.sort((a, b) => (a.day > b.day ? 1 : -1));
-  console.log(sortedData);
   const dreamList = sortedData.map((dream) => {
     return <Dream key={dream._id} {...dream} />;
   });

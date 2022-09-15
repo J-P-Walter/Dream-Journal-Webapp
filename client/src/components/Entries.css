@@ -29,7 +29,6 @@
 .data {
   animation: fade-in 2.5s;
   animation-fill-mode: forwards;
-  pointer-events: none;
 }
 @keyframes fade-in {
   0% {
@@ -53,6 +52,7 @@
   top: 0;
   animation: fade-in-close 2.5s;
   opacity: 0.3;
+  cursor: pointer;
 }
 @keyframes fade-in-close {
   0% {
