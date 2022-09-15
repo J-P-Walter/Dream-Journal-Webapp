@@ -2,13 +2,6 @@ import "./Dream.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-async function del(id) {
-  console.log(id);
-  await fetch(`http://localhost:3500/delete/${id}`, {
-    method: "DELETE",
-  });
-  this.forceUpdate();
-}
 function update() {}
 
 export default function Dream(props) {
@@ -33,7 +26,7 @@ export default function Dream(props) {
         <FontAwesomeIcon
           icon={faTrash}
           size="2x"
-          onClick={() => del(props._id)}
+          onClick={() => props.del(props._id)}
         />
       </div>
     </div>
