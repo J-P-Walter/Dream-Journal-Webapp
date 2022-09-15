@@ -1,17 +1,24 @@
 import React from "react";
 import "./Entries.css";
 import Dream from "./Dream";
-import { Link } from "react-router-dom";
 
 export default function Entries(props) {
+  const [sortedData, setSortedData] = React.useState([]);
+
   async function del(id) {
-    console.log(id);
     await fetch(`http://localhost:3500/delete/${id}`, {
       method: "DELETE",
     });
-  }
 
-  const sortedData = props.data.sort((a, b) => (a.day > b.day ? 1 : -1));
+    const newSorted = sortedData.filter((obj) => {
+      return obj._id !== id;
+    });
+    setSortedData(newSorted);
+  }
+  React.useEffect(() => {
+    setSortedData(props.data.sort((a, b) => (a.day > b.day ? 1 : -1)));
+  }, [props.data]);
+  //const sortedData = props.data.sort((a, b) => (a.day > b.day ? 1 : -1));
   const dreamList = sortedData.map((dream) => {
     return <Dream key={dream._id} {...dream} del={del} />;
   });
@@ -20,7 +27,7 @@ export default function Entries(props) {
     <div className="view-entries">
       <div className="close" onClick={props.close}></div>
       <div className="data">
-        {props.data.length > 0 ? (
+        {sortedData.length > 0 ? (
           <div>
             <div className="dreams">{dreamList}</div>
           </div>
