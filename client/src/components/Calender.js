@@ -27,7 +27,6 @@ export default function Calender() {
     group[month_number].push(month);
     return group;
   }, {});
-
   const months = [
     "Jan",
     "Feb",
@@ -42,7 +41,6 @@ export default function Calender() {
     "Nov",
     "Dec",
   ];
-
   const Months = [];
   for (let i = 1; i < months.length + 1; i++) {
     let entries = [];

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 
 export default function Create() {
   const [form, setForm] = useState({
+    date: { date: Date() },
     month_name: "",
     month_number: 0,
     day: "",
@@ -10,12 +11,11 @@ export default function Create() {
     sleep_length: 8,
     dream: "",
   });
-  //Gives access to navigation object, useful when you cannot pass the navigation prop into the component directly
-  //or don't want to pass it into children
+
   const params = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  React.useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
       const response = await fetch(
@@ -51,6 +51,7 @@ export default function Create() {
       return setForm((prevForm) => {
         return {
           ...prevForm,
+          date: value,
           month_name: month_name,
           month_number: month_number,
           day: day,
@@ -75,39 +76,30 @@ export default function Create() {
   //Handles submit
   async function onSubmit(e) {
     e.preventDefault();
-
     //Adds data held in form to the database
-    const newDream = { ...form };
-    await fetch("http://localhost:3500/record/add", {
+    const editDream = { ...form };
+    await fetch(`http://localhost:3500/update/${params.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newDream),
+      body: JSON.stringify(editDream),
     }).catch((err) => {
       window.alert(err);
       return;
     });
 
-    //Resets form back to default after submission
-    setForm({
-      month_name: "",
-      month_number: 0,
-      day: "",
-      sleep_quality: 2,
-      sleep_length: 8,
-      dream: "",
-    });
     navigate("/");
   }
   return (
     <div>
-      <h1>Create new entry</h1>
+      <h1>Update Dream</h1>
 
       <form onSubmit={onSubmit}>
         <label htmlFor="date">Date</label>
         <input
           type="date"
+          value={form.date.date}
           onChange={(e) => updateForm({ date: e.target.value })}
         />
         <label htmlFor="sleep_quality">Sleep Quality</label>

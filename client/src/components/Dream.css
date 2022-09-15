@@ -26,3 +26,9 @@
 
   align-self: center;
 }
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}

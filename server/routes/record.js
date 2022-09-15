@@ -22,7 +22,6 @@ recordRoutes.route("/record/:id").get((req, res) => {
   let myquery = { _id: ObjectId(req.params.id) };
   db_route.collection("dreams").findOne(myquery, (err, result) => {
     if (err) throw err;
-    console.log("Found by id");
     res.json(result);
   });
 });
@@ -31,6 +30,7 @@ recordRoutes.route("/record/:id").get((req, res) => {
 recordRoutes.route("/record/add").post((req, response) => {
   let db_route = connectDB.getDb();
   let new_record = {
+    date: req.body.date,
     month_name: req.body.month_name,
     month_number: req.body.month_number,
     day: req.body.day,
@@ -50,14 +50,15 @@ recordRoutes.route("/update/:id").post((req, response) => {
   let db_route = connectDB.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let new_record = {
-    $set: {
-      date: req.body.date,
-      sleep_quality: req.body.sleep_quality,
-      sleep_length: req.body.sleep_length,
-      dream: req.body.dream,
-    },
+    date: req.body.date,
+    month_name: req.body.month_name,
+    month_number: req.body.month_number,
+    day: req.body.day,
+    sleep_quality: req.body.sleep_quality,
+    sleep_length: req.body.sleep_length,
+    dream: req.body.dream,
   };
-  db_route.collection("dreams").updateOne(myquery, new_record, (err, res) => {
+  db_route.collection("dreams").replaceOne(myquery, new_record, (err, res) => {
     if (err) throw err;
     console.log("Updated");
     response.json(res);

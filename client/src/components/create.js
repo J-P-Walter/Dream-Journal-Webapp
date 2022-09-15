@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 
 export default function Create() {
   const [form, setForm] = useState({
+    date: null,
     month_name: "",
     month_number: 0,
     day: "",
@@ -23,12 +24,14 @@ export default function Create() {
       return setForm((prevForm) => {
         return {
           ...prevForm,
+          date: value,
           month_name: month_name,
           month_number: month_number,
           day: day,
         };
       });
     }
+
     return setForm((prevForm) => {
       return { ...prevForm, ...value };
     });
@@ -47,7 +50,6 @@ export default function Create() {
   //Handles submit
   async function onSubmit(e) {
     e.preventDefault();
-
     //Adds data held in form to the database
     const newDream = { ...form };
     await fetch("http://localhost:3500/record/add", {
@@ -63,6 +65,7 @@ export default function Create() {
 
     //Resets form back to default after submission
     setForm({
+      date: Date(),
       month_name: "",
       month_number: 0,
       day: "",

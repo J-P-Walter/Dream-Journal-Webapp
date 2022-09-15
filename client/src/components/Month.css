@@ -15,6 +15,7 @@
   animation: fade-in 2s;
   margin: 5%;
 }
+/* animation iteration count */
 @keyframes fade-in {
   from {
     opacity: 0;

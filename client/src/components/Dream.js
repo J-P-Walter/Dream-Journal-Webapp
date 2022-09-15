@@ -17,11 +17,16 @@ export default function Dream(props) {
       </div>
       <div className="dream">{props.dream}</div>
       <div className="buttons">
-        <FontAwesomeIcon
-          icon={faPenToSquare}
-          size="2x"
-          onClick={() => update(props._id)}
-        />
+        <a
+          href={`http://localhost:3000/update/${props._id}`}
+          className="create"
+        >
+          <FontAwesomeIcon
+            icon={faPenToSquare}
+            size="2x"
+            onClick={() => update(props._id)}
+          />
+        </a>
         {"  "}
         <FontAwesomeIcon
           icon={faTrash}
