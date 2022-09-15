@@ -26,6 +26,7 @@
 .data {
   animation: fade-in 2.5s;
   animation-fill-mode: forwards;
+  pointer-events: none;
 }
 @keyframes fade-in {
   0% {
@@ -108,6 +109,5 @@ button:active {
   display: block;
   border: 2px solid red;
   width: 100%;
-  height: 50px;
-  pointer-events: none;
+  height: 30px;
 }
