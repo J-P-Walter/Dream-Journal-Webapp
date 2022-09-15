@@ -10,7 +10,6 @@ function App() {
   return (
     <body>
       <Router>
-        <Navbar />
         <Routes>
           <Route exact path="/" element={<Calender />} />
           <Route path="/create" element={<Create />} />

@@ -1,5 +1,6 @@
 import React from "react";
 import Month from "./Month";
+import { nanoid } from "nanoid";
 
 export default function Calender() {
   const [records, setRecords] = React.useState([]);
@@ -54,7 +55,9 @@ export default function Calender() {
         entries = groupByMonth[i.toString()];
       }
     }
-    Months.push(<Month month={months[i - 1]} data={entries} show={false} />);
+    Months.push(
+      <Month month={months[i - 1]} data={entries} show={false} key={nanoid()} />
+    );
   }
 
   return (
