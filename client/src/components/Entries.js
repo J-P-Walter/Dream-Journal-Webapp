@@ -1,11 +1,12 @@
 import React from "react";
 import "./Entries.css";
 import Dream from "./Dream";
+import { Link } from "react-router-dom";
 
 export default function Entries(props) {
-  const [dreams, setDreams] = React.useState(props.data);
-
-  const dreamList = dreams.map((dream) => {
+  const sortedData = props.data.sort((a, b) => (a.day > b.day ? 1 : -1));
+  console.log(sortedData);
+  const dreamList = sortedData.map((dream) => {
     return <Dream key={dream._id} {...dream} />;
   });
 
@@ -13,9 +14,10 @@ export default function Entries(props) {
     <div className="view-entries">
       <div className="close" onClick={props.close}></div>
       <div className="data">
-        {dreams.length > 0 ? (
-          // <div className="dreams">{dreamList}</div>
-          <p className="dreams"></p>
+        {props.data.length > 0 ? (
+          <div>
+            <div className="dreams">{dreamList}</div>
+          </div>
         ) : (
           <div className="no-dreams">
             <p>You have no dreams logged</p>
