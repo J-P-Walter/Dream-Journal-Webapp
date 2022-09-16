@@ -9,7 +9,7 @@ export default function Calender() {
   React.useEffect(() => {
     async function getRecords() {
       const response = await fetch(
-        "https://jp-dream-journal.herokuapp.com:5000/record/"
+        "https://jp-dream-journal.herokuapp.com/record/"
       );
 
       if (!response.ok) {
