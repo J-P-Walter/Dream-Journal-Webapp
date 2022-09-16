@@ -1,6 +1,7 @@
 import React from "react";
 import Month from "./Month";
 import { nanoid } from "nanoid";
+import "./Calender.css";
 
 export default function Calender() {
   const [records, setRecords] = React.useState([]);
@@ -60,7 +61,12 @@ export default function Calender() {
 
   return (
     <div>
-      <h1 className="title">Dream Journal</h1>
+      <div>
+        <h1 className="title">Dream Journal</h1>
+        <a href="http://localhost:3000/create" className="create-button">
+          <button>Create New</button>
+        </a>
+      </div>
       <main className="calender">
         <div className="months">{Months}</div>
       </main>

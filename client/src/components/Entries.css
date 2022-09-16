@@ -27,7 +27,9 @@
   }
 }
 .data {
+  opacity: 0;
   animation: fade-in 2.5s;
+  animation-delay: 1.75s;
   animation-fill-mode: forwards;
 }
 @keyframes fade-in {
