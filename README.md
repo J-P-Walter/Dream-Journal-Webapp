@@ -4,5 +4,5 @@ This is my first full stack project. It is based on the MERN architecture and th
 
 You can find the finished project [here](https://jp-dream-journal.netlify.app/). \
 It was deployed using Netlify for the client side and Heroku for the api side.\
-There are still many things that could be implemented (first thing that comes to mind is a login system) and I am sure it could be optimized but I am extremely happy with the results. The project in its whole took me a little less than a standard work week, and I gained a lot of knowledge from more HTML/CSS practice to more experience in React to Express apis and CRUD architecture for using a database. 
+There are still many things that could be implemented (first thing that comes to mind is a login system) and I am sure it could be optimized but I am extremely happy with the results. The project in its whole took me a little less than a standard work week, and I gained a lot of knowledge: from more HTML/CSS practice to more experience in React to Express APIs and CRUD architecture for using a database. 
 
