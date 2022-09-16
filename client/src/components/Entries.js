@@ -37,7 +37,7 @@ export default function Entries(props) {
           <div className="no-dreams">
             <p>You have no dreams logged</p>
             <a
-              href="https://jp-dream-journal.netlify.app/"
+              href="https://jp-dream-journal.netlify.app/create"
               className="create-button"
             >
               <button>Want to create one?</button>
