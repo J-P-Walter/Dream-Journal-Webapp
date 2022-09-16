@@ -65,7 +65,10 @@ export default function Calender() {
     <div>
       <div>
         <h1 className="title">Dream Journal</h1>
-        <a href="http://localhost:3000/create" className="create-button">
+        <a
+          href="https://jp-dream-journal.netlify.app/create"
+          className="create-button"
+        >
           <button>Create New</button>
         </a>
       </div>

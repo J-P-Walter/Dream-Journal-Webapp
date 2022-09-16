@@ -17,7 +17,7 @@ export default function Dream(props) {
       <div className="dream">{props.dream}</div>
       <div className="buttons">
         <a
-          href={`http://localhost:3000/update/${props._id}`}
+          href={`https://jp-dream-journal.netlify.app/update/${props._id}`}
           className="create"
         >
           <FaPen size={25} onClick={() => update(props._id)} />
