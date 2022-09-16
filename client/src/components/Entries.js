@@ -25,7 +25,9 @@ export default function Entries(props) {
 
   return (
     <div className="view-entries">
-      <div className="close" onClick={props.close}></div>
+      <a href="http://localhost:3000/">
+        <div className="close"></div>
+      </a>
       <div className="data">
         {sortedData.length > 0 ? (
           <div>
@@ -34,7 +36,7 @@ export default function Entries(props) {
         ) : (
           <div className="no-dreams">
             <p>You have no dreams logged</p>
-            <a href="http://localhost:3000/create" className="create">
+            <a href="http://localhost:3000/create" className="create-button">
               <button>Want to create one?</button>
             </a>
           </div>

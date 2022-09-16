@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import "./Create.css";
 
 export default function Create() {
   const [form, setForm] = useState({
@@ -80,34 +81,44 @@ export default function Create() {
       <h1>Create new entry</h1>
 
       <form onSubmit={onSubmit}>
-        <label htmlFor="date">Date</label>
-        <input
-          type="date"
-          onChange={(e) => updateForm({ date: e.target.value })}
-        />
-        <label htmlFor="sleep_quality">Sleep Quality</label>
-        <input
-          type="number"
-          min="1"
-          max="4"
-          value={form.sleep_quality}
-          onChange={(e) => updateForm({ sleep_quality: e.target.value })}
-        />
-        <label htmlFor="sleep_length">Sleep Length</label>
-        <input
-          type="number"
-          min="1"
-          max="20"
-          value={form.sleep_length}
-          onChange={(e) => updateForm({ sleep_length: e.target.value })}
-        />
-        <label htmlFor="Dream">dream</label>
-        <input
-          type="text"
-          value={form.dream}
-          onChange={(e) => updateForm({ dream: e.target.value })}
-        />
+        <div>
+          <label htmlFor="date">Date</label>
+          <input
+            type="date"
+            required
+            onChange={(e) => updateForm({ date: e.target.value })}
+          />
+        </div>
+        <div>
+          <label htmlFor="sleep_quality">Sleep Quality (x/4)</label>
+          <input
+            type="number"
+            min="1"
+            max="4"
+            value={form.sleep_quality}
+            onChange={(e) => updateForm({ sleep_quality: e.target.value })}
+          />
+        </div>
+        <div>
+          <label htmlFor="sleep_length">Sleep Length</label>
+          <input
+            type="number"
+            min="1"
+            max="20"
+            value={form.sleep_length}
+            onChange={(e) => updateForm({ sleep_length: e.target.value })}
+          />
+        </div>
+        <div>
+          <label htmlFor="Dream">dream</label>
+          <input
+            type="text"
+            value={form.dream}
+            onChange={(e) => updateForm({ dream: e.target.value })}
+          />
+        </div>
         <input type="submit" value="Submit" />
+        <input type="submit" value="Cancel" formNoValidate />
       </form>
     </div>
   );

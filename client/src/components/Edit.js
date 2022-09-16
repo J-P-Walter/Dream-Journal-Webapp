@@ -100,6 +100,7 @@ export default function Create() {
         <input
           type="date"
           value={form.date.date}
+          required
           onChange={(e) => updateForm({ date: e.target.value })}
         />
         <label htmlFor="sleep_quality">Sleep Quality</label>
@@ -125,6 +126,7 @@ export default function Create() {
           onChange={(e) => updateForm({ dream: e.target.value })}
         />
         <input type="submit" value="Submit" />
+        <input type="submit" value="Cancel" formNoValidate />
       </form>
     </div>
   );

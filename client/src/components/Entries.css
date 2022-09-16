@@ -94,7 +94,7 @@
   font-weight: 500;
   font-size: 200%;
 }
-button {
+.create-button > button {
   font-size: 100%;
   background: #d5d0ff;
   box-shadow: 0 5px 0px #948fc5;
@@ -103,7 +103,7 @@ button {
   border: none;
   cursor: pointer;
 }
-button:active {
+.create-button > button:active {
   box-shadow: none;
   transform: translateY(5px);
 }
