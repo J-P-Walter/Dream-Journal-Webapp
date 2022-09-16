@@ -25,7 +25,7 @@ export default function Entries(props) {
 
   return (
     <div className="view-entries">
-      <a href="http://localhost:3000/">
+      <a href="https://jp-dream-journal.netlify.app/">
         <div className="close"></div>
       </a>
       <div className="data">
@@ -36,7 +36,10 @@ export default function Entries(props) {
         ) : (
           <div className="no-dreams">
             <p>You have no dreams logged</p>
-            <a href="http://localhost:3000/create" className="create-button">
+            <a
+              href="https://jp-dream-journal.netlify.app/"
+              className="create-button"
+            >
               <button>Want to create one?</button>
             </a>
           </div>
