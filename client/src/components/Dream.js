@@ -1,6 +1,5 @@
 import "./Dream.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FaTrash, FaPen } from "react-icons/fa";
 
 function update() {}
 
@@ -21,18 +20,10 @@ export default function Dream(props) {
           href={`http://localhost:3000/update/${props._id}`}
           className="create"
         >
-          <FontAwesomeIcon
-            icon={faPenToSquare}
-            size="2x"
-            onClick={() => update(props._id)}
-          />
+          <FaPen size={25} onClick={() => update(props._id)} />
         </a>
         {"  "}
-        <FontAwesomeIcon
-          icon={faTrash}
-          size="2x"
-          onClick={() => props.del(props._id)}
-        />
+        <FaTrash size={25} onClick={() => props.del(props._id)} />
       </div>
     </div>
   );
