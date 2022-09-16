@@ -6,7 +6,7 @@ export default function List() {
 
   React.useEffect(() => {
     async function getRecords() {
-      const response = await fetch("http://localhost:3500/record/");
+      const response = await fetch("http://localhost:5000/record/");
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;

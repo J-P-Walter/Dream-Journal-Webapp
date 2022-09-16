@@ -53,7 +53,7 @@ export default function Create() {
     e.preventDefault();
     //Adds data held in form to the database
     const newDream = { ...form };
-    await fetch("http://localhost:3500/record/add", {
+    await fetch("http://localhost:5000/record/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

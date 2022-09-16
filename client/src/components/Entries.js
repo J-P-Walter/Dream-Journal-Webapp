@@ -6,7 +6,7 @@ export default function Entries(props) {
   const [sortedData, setSortedData] = React.useState([]);
 
   async function del(id) {
-    await fetch(`http://localhost:3500/delete/${id}`, {
+    await fetch(`http://localhost:5000/delete/${id}`, {
       method: "DELETE",
     });
 

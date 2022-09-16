@@ -19,7 +19,7 @@ export default function Create() {
     async function fetchData() {
       const id = params.id.toString();
       const response = await fetch(
-        `http://localhost:3500/record/${params.id.toString()}`
+        `http://localhost:5000/record/${params.id.toString()}`
       );
 
       if (!response.ok) {
@@ -78,7 +78,7 @@ export default function Create() {
     e.preventDefault();
     //Adds data held in form to the database
     const editDream = { ...form };
-    await fetch(`http://localhost:3500/update/${params.id}`, {
+    await fetch(`http://localhost:5000/update/${params.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
