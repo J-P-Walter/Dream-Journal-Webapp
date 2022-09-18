@@ -122,6 +122,7 @@ export default function Create() {
         <label htmlFor="Dream">dream</label>
         <input
           type="text"
+          maxlength="3000"
           value={form.dream}
           onChange={(e) => updateForm({ dream: e.target.value })}
         />
