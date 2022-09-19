@@ -119,7 +119,7 @@ export default function Create() {
           value={form.sleep_length}
           onChange={(e) => updateForm({ sleep_length: e.target.value })}
         />
-        <label htmlFor="Dream">dream</label>
+        <label htmlFor="Dream">Dream</label>
         <input
           type="text"
           maxlength="3000"

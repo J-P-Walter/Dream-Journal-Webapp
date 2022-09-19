@@ -110,7 +110,7 @@ export default function Create() {
           />
         </div>
         <div>
-          <label htmlFor="Dream">dream</label>
+          <label htmlFor="Dream">Dream</label>
           <input
             type="text"
             maxlength="3000"
