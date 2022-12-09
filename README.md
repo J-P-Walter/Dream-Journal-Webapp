@@ -1,4 +1,4 @@
-# Dream-Journal
+# Dream-Journal (Broken due to Heroku no longer having free hosting)
 
 This is my first full stack project. It is based on the MERN architecture and the idea came to me as I listened to my girlfriend tell me about her crazy dreams, which she will sometimes write down in a notebook. I figured why not turn it into a project.
 
